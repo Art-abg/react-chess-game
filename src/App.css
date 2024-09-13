@@ -1,38 +1,179 @@
 .App {
   text-align: center;
+  font-family: Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.game {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.board {
+  display: inline-flex;
   flex-direction: column;
+  background-color: #8b4513;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.board-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.rank-label {
+  width: 20px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-weight: bold;
+  color: #fff;
+}
+
+.file-labels {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+}
+
+.file-label {
+  width: 60px;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.square.light {
+  background-color: #f0d9b5;
+}
+
+.square.dark {
+  background-color: #b58863;
+}
+
+.square.selected {
+  background-color: #f6f669;
+}
+
+.game-info {
+  margin-left: 20px;
+  width: 200px;
+}
+
+.player-indicator {
+  font-size: 48px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 10px auto;
+}
+
+.player-indicator.white {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.player-indicator.black {
+  background-color: #000;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.captured-pieces {
+  margin-top: 20px;
+}
+
+.captured-piece {
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+.game-status {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+.game-info button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4caf50;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.game-info button:hover {
+  background-color: #45a049;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.game-info button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+.piece {
+  font-size: 48px;
+  line-height: 60px;
+}
+
+.piece.white {
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.piece.black {
+  color: #000;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.captured-piece {
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+.captured-piece.white {
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.captured-piece.black {
+  color: #000;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.square.light .piece {
+  color: #000;
+}
+
+.square.dark .piece {
+  color: #fff;
+}
+.captured-piece {
+  font-size: 24px;
+  margin-right: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
